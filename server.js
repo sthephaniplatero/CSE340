@@ -21,7 +21,9 @@ app.set("layout", "./layouts/layout")
 /******************************************
  * Middleware y Rutas
  ******************************************/
+app.use(express.static('public'));
 app.use(staticRoutes)
+
 
 // Index route
 app.get("/", function(req, res) {
