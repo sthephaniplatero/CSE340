@@ -198,7 +198,7 @@ h1, h2, h3, h4 {
 
 .button-own {
   background-color: var(--pop) !important; 
-  color: white !important; 
+  color: black !important; 
   font-size: 1rem;
   font-weight: bold;
   padding: 0.75rem 1.5rem;
