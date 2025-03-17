@@ -216,7 +216,16 @@ INNER JOIN classification
 WHERE classification.classification_name = 'Sport';
 
 -- UPDATE QUERY to modify image paths
+
 UPDATE inventory
 SET 
-    inv_image = CONCAT(SUBSTRING(inv_image FROM 1 FOR POSITION('.' IN inv_image) - 1), '/vehicles', SUBSTRING(inv_image FROM POSITION('.' IN inv_image) FOR LENGTH(inv_image))),
-    inv_thumbnail = CONCAT(SUBSTRING(inv_thumbnail FROM 1 FOR POSITION('.' IN inv_thumbnail) - 1), '/vehicles', SUBSTRING(inv_thumbnail FROM POSITION('.' IN inv_thumbnail) FOR LENGTH(inv_thumbnail)));
+    inv_image = CONCAT(
+        SUBSTRING(inv_image FROM 1 FOR POSITION('images' IN inv_image) + 5), 
+        '/vehicles', 
+        SUBSTRING(inv_image FROM POSITION('images' IN inv_image) + 6 FOR LENGTH(inv_image))
+    ),
+    inv_thumbnail = CONCAT(
+        SUBSTRING(inv_thumbnail FROM 1 FOR POSITION('images' IN inv_thumbnail) + 5), 
+        '/vehicles', 
+        SUBSTRING(inv_thumbnail FROM POSITION('images' IN inv_thumbnail) + 6 FOR LENGTH(inv_thumbnail))
+    );
