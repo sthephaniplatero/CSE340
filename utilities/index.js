@@ -1,10 +1,10 @@
 const invModel = require("../models/inventory-model");
-const Util = {};
+const Utilities = {};
 
 /* ************************
  * Constructs the nav HTML unordered list
  ************************** */
-Util.getNav = async function (req, res, next) {
+Utilities.getNav = async function (req, res, next) {
   try {
     const data = await invModel.getClassifications();
 
@@ -34,7 +34,7 @@ Util.getNav = async function (req, res, next) {
 /* **************************************
  * Build the classification view HTML
  * ************************************ */
-Util.buildClassificationGrid = async function (data) {
+Utilities.buildClassificationGrid = async function (data) {
   let grid = ""; // Inicializa grid
 
   if (data && data.length > 0) {
@@ -68,10 +68,34 @@ Util.buildClassificationGrid = async function (data) {
 
 /* ****************************************
  * Middleware For Handling Errors
- * Wrap other functions in this for 
- * General Error Handling
- **************************************** */
-Util.handleErrors = (fn) => (req, res, next) =>
+ * **************************************** */
+Utilities.handleErrors = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
 
-module.exports = Util;
+/* ***************************
+ * Format Item Details for the View
+ * ************************** */
+Utilities.formatItemDetails = function (item) {
+  // Format price and mileage with commas
+  const formattedPrice = Number(item.inv_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  const formattedMileage = Number(item.inv_miles).toLocaleString();
+
+  // Create the HTML structure for the item details
+  const itemHTML = `
+  <div class="item-details">
+    <img src="${item.inv_image}" alt="${item.inv_make} ${item.inv_model}" class="full-image" />
+    <div class="item-content">
+      <h2>${item.inv_make} ${item.inv_model}</h2>
+      <p><strong>Make and Model:</strong> ${item.inv_make} ${item.inv_model}</p>
+      <p><strong>Year:</strong> ${item.inv_year}</p>
+      <p><strong>Price:</strong> ${formattedPrice}</p>
+      <p><strong>Mileage:</strong> ${formattedMileage}</p>
+      <p><strong>Description:</strong> ${item.inv_description}</p>
+    </div>
+  </div>
+`;
+
+  return itemHTML;
+};
+
+module.exports = Utilities;

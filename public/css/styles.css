@@ -344,12 +344,15 @@ ul#inv-display li h2 {
   margin: 0;
   font-size: 18px;
   color: #333;
+  text-align: center;
 }
 
 ul#inv-display li span {
   font-size: 16px;
-  color: #28a745;
+  color: #103dd2;
   font-weight: bold;
+  text-align: center !important;
+  display: block;  /* El span ahora ocupa todo el ancho del li */
 }
 
 ul#inv-display li .namePrice hr {
@@ -364,4 +367,98 @@ ul#inv-display li .namePrice hr {
   color: #e74c3c;
   text-align: center;
   padding: 20px;
+}
+
+
+/* Cars details */
+
+/* Item Details Section */
+.item-details {
+  display: flex;  /* Flexbox for structure of a line */
+  flex-direction: row;  /* Image and content in a row */
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.full-image {
+  width: 500px;  /* Size of the image */
+  height: 400px;
+  object-fit: cover;  /* Avoid distortion*/
+  border-radius: 6px;
+  margin-right: 20px;  /* Space between the image and the content */
+}
+
+.item-content {
+  display: grid;  /* Cambiar a Grid */
+  grid-template-columns: 1fr;  /* Una columna que ocupe toda la fracción disponible */
+  gap: 10px;  /* Espacio entre los elementos */
+}
+
+.item-details h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.item-details p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #103dd2;
+}
+
+strong {
+  color: #222;
+  text-align: center;
+  
+}
+
+.item-details p + p {
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .item-details {
+    flex-direction: column;  /*  Image on the top of the text in small screems*/
+    text-align: center;
+  }
+
+  .full-image {
+    margin-right: 0;
+    margin-bottom: 15px;
+    width: 100%;  /*  Image use the complete width of the moviles  */
+    width: 400px;  /* Size of the image */
+    height: 300px;
+  }
+
+  .item-content {
+    align-items: center;  /* Center the content if the pocisionate vertically*/
+  }
+}
+
+/* Return button */
+
+.btn {
+  display: inline-block;  /* Para comportarse como un botón */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(39, 76, 157);;  /* Azul estándar tipo Bootstrap */
+  text-align: center;
+  text-decoration: none;  /* Elimina el subrayado del enlace */
+  border-radius: 5px;  /* Bordes redondeados */
+  border: 1px solid #007bff;  /* Borde a juego */
+  cursor: pointer;  /* Cambia el cursor a "puntero" */
+  transition: background-color 0.3s ease;  /* Suaviza el cambio de color */
+}
+
+.btn:hover {
+  background-color: #0056b3;  /* Oscurece el azul al pasar el mouse */
 }

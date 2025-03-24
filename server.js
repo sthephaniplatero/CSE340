@@ -13,6 +13,7 @@ const staticRoutes = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities/index")
+const errorRoute = require('./routes/errorRoute'); // Import the error route
 /******************************************
  * View Engine aqnd Templates
  ******************************************/
