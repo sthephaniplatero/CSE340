@@ -464,76 +464,68 @@ strong {
 }
 
 /* Log In form */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-}
-
-main {
-    max-width: 400px;
-    margin: 50px auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
 h1 {
-    text-align: center;
-    color: #333;
+  text-align: center;
+  color: #333;
 }
 
 .flash-message {
-    background-color: #ffcccb;
-    color: #721c24;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+  background-color: #ffcccb;
+  color: #721c24;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 5px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  margin: 0 auto;
+  background-color:#0056b3; 
+  padding: 20px; 
+  border-radius: 10px; 
 }
 
 label {
-    margin-top: 10px;
-    font-weight: bold;
+  margin-top: 5px; /* Reducir margen superior */
+  font-weight: bold;
+  font-size: 14px; /* Reducir tamaño de fuente */
 }
 
 input {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  padding: 8px; /* Reducir padding */
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px; /* Reducir tamaño de fuente */
 }
 
 button {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  margin-top: 15px; /* Reducir margen superior */
+  padding: 8px; /* Reducir padding */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Reducir tamaño de fuente */
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 p {
-    text-align: center;
+  text-align: center;
 }
 
 a {
-    color: #007bff;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px; /* Reducir tamaño de fuente */
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }

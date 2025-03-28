@@ -4,8 +4,10 @@ const router = new express.Router()
 const accountController = require ("../controllers/accountController")
 
 router.post('/register', accountController.handleRegister);
+router.post('/register', utilities.handleErrors(accountController.registerAccount))
 // Route for login
 router.get('/login', accountController.buildLogin);
+
 
 // Route for registration
 router.get('/register', accountController.buildRegister);

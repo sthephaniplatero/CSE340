@@ -17,6 +17,7 @@ const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities/index")
 const errorRoute = require('./routes/errorRoute'); // Import the error route
 const accountRoute = require('./routes/accountRoute');
+const bodyParser = require("body-parser")
 /******************************************
  * View Engine and Templates
  ******************************************/
@@ -51,6 +52,8 @@ app.use(function(req, res, next){
 app.use(express.static('public'));
 app.use(staticRoutes)
 app.use('/account', accountRoute);
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
 // Index route
@@ -59,17 +62,10 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute)
 
-
-
-
-
-
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
-
-
 
 
 /******************************************

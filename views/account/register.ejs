@@ -2,25 +2,18 @@
 <html lang="en">
   <%- include("../partials/head.ejs") %>
   <body>
-    <div id="wrapper">
-      <%- include("../partials/header.ejs") %> <%-
-      include("../partials/navigation.ejs") %>
-
       <main>
         <h1><%= title %></h1>
 
         <!-- Mostrar mensaje flash si existe -->
-        <% if (typeof message !== 'undefined') { %>
-        <div class="flash-message"><%= message %></div>
-        <% } %>
 
         <!-- Registration form -->
-        <form action="/account/register" method="POST">
+        <form action="/account/register" method="post">
           <label for="first-name">First Name:</label>
           <input
             type="text"
             id="first-name"
-            name="first-name"
+            name="first-name" 
             required
             data-trail="first-name"
           />
@@ -29,7 +22,7 @@
           <input
             type="text"
             id="last-name"
-            name="last-name"
+            name="last-name"  
             required
             data-trail="last-name"
           />
@@ -38,7 +31,7 @@
           <input
             type="email"
             id="email"
-            name="email"
+            name="email"  
             required
             data-trail="email"
           />
@@ -48,7 +41,7 @@
             <input
               type="password"
               id="password"
-              name="password"
+              name="password"  
               required
               data-trail="password"
               pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{12,})"
@@ -63,30 +56,21 @@
             </button>
           </div>
 
+          <label for="confirm-password">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirmPassword" 
+            required
+            data-trail="confirmPassword"
+          />
+
           <button type="submit">Register</button>
         </form>
 
         <!-- Link to login -->
         <p>Already have an account? <a href="/account/login">Login Here</a></p>
       </main>
-
-      <%- include("../partials/footer.ejs") %>
-
-      <script>
-        // Toggle Password Visibility
-        const togglePasswordBtn = document.getElementById("toggle-password");
-        const passwordInput = document.getElementById("password");
-
-        togglePasswordBtn.addEventListener("click", () => {
-          const type =
-            passwordInput.getAttribute("type") === "password"
-              ? "text"
-              : "password";
-          passwordInput.setAttribute("type", type);
-          togglePasswordBtn.textContent = type === "password" ? "👁" : "🙈"; // Change the icon
-        });
-      </script>
-    </div>
     <script src="/js/script.js"></script>
   </body>
 </html>
