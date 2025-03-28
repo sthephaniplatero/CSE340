@@ -450,15 +450,90 @@ strong {
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: rgb(39, 76, 157);;  /* Azul estándar tipo Bootstrap */
+  background-color: rgb(39, 76, 157);
   text-align: center;
-  text-decoration: none;  /* Elimina el subrayado del enlace */
-  border-radius: 5px;  /* Bordes redondeados */
-  border: 1px solid #007bff;  /* Borde a juego */
-  cursor: pointer;  /* Cambia el cursor a "puntero" */
-  transition: background-color 0.3s ease;  /* Suaviza el cambio de color */
+  text-decoration: none;  
+  border-radius: 5px; 
+  border: 1px solid #007bff;  
+  cursor: pointer;  
+  transition: background-color 0.3s ease;  
 }
 
 .btn:hover {
-  background-color: #0056b3;  /* Oscurece el azul al pasar el mouse */
+  background-color: #0056b3;  
+}
+
+/* Log In form */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.flash-message {
+    background-color: #ffcccb;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

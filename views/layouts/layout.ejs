@@ -7,7 +7,26 @@
         <%- include ("../partials/navigation.ejs") %>
 
         <main>
-            <%- body %> 
+            <h1><%= title %></h1>
+    
+            <!-- Mostrar mensaje flash si existe -->
+            <% if (typeof message !== 'undefined') { %>
+                <div class="flash-message"><%= message %></div>
+            <% } %>
+    
+            <!-- login form -->
+            <form action="/account/login" method="POST">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+    
+                <button type="submit">Log In</button>
+            </form>
+    
+            <!-- New accounts -->
+            <p>You don't have an account? <a href="/account/register">Register Here</a></p>
         </main>
 
         <%- include ("../partials/footer.ejs") %>
